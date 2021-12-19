@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pages
   get '/search', to: 'search#index'
   resources :products
   resources :search

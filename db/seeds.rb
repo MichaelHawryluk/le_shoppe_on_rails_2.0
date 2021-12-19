@@ -8,6 +8,7 @@
 
 require "csv"
 
+Page.delete_all
 Product.delete_all
 
 filename = Rails.root.join("db/products.csv")
@@ -26,6 +27,18 @@ products.each do |p|
   )
 end
 
+Page.create(
+  title: 'About the dataset',
+  content: 'the dataset comes from a public github repository, has a anumber of different available products, mostly electronics.',
+  permalink: 'about_the_dataset'
+)
+
+Page.create(
+  title: 'Contact Us',
+  content: 'If you have any issues or suggestions feel free to reach out to us @leshoppe@mb.ca.',
+  permalink: 'contact'
+)
+
 # products.each do |p|
 # puts "\nProduct: " + p["name"] +
 #       "\nDescription: " + p["description"] +
@@ -33,3 +46,5 @@ end
 #       "\nProduct Stock " + p["product_stock"] +
 #       "\nProduct Status ID: " + p["product_status_id"]
 # end
+
+ puts "Created #{Page.count} pages."
