@@ -6,34 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
 require "csv"
 
 Product.delete_all
 
-
 filename = Rails.root.join("db/products.csv")
-
-puts "Loading products from the csv files: #{filename}"
-
 
 csv_data = File.read(filename)
 
 products = CSV.parse(csv_data, headers: true, encoding: "utf-8")
 
-#create table Brands with name and associated short-url
-  products.each do |p|
-    product = Product.create(
-      name: p["name"],
-      description: p["description"],
-      price: p["price"],
-      product_stock: p["product_stock"]
-    )
-  end
-
-  puts Product.count
-
+# create table Brands with name and associated short-url
+products.each do |p|
+  product = Product.create(
+    name:          p["name"],
+    description:   p["description"],
+    price:         p["price"],
+    product_stock: p["product_stock"]
+  )
+end
 
 # products.each do |p|
 # puts "\nProduct: " + p["name"] +
@@ -42,4 +33,3 @@ products = CSV.parse(csv_data, headers: true, encoding: "utf-8")
 #       "\nProduct Stock " + p["product_stock"] +
 #       "\nProduct Status ID: " + p["product_status_id"]
 # end
-

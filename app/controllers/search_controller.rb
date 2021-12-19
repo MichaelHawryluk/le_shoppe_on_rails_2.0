@@ -8,4 +8,7 @@ class SearchController < ApplicationController
         @products2 = Product.where("name LIKE ?", "%#{@name}%")
     end
   end
+  scope module: "product" do
+    resources :search
+  end
 end

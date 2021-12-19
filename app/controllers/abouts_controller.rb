@@ -1,5 +1,5 @@
 class AboutsController < ApplicationController
-  before_action :set_about, only: %i[ show edit update destroy ]
+  before_action :set_about, only: %i[show edit update destroy]
 
   # GET /abouts or /abouts.json
   def index
@@ -7,8 +7,7 @@ class AboutsController < ApplicationController
   end
 
   # GET /abouts/1 or /abouts/1.json
-  def show
-  end
+  def show; end
 
   # GET /abouts/new
   def new
@@ -16,8 +15,7 @@ class AboutsController < ApplicationController
   end
 
   # GET /abouts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /abouts or /abouts.json
   def create
@@ -58,13 +56,14 @@ class AboutsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_about
-      @about = About.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def about_params
-      params.fetch(:about, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_about
+    @about = About.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def about_params
+    params.fetch(:about, {})
+  end
 end

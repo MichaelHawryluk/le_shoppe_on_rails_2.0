@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :abouts
+  get 'home/index'
+  get '/search', to: 'search#index'
   resources :products
-  resources :search, only: [:index]
-  root to: 'products#index'
+  resources :search
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

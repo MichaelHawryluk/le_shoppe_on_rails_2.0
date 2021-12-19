@@ -14,6 +14,7 @@ AllCops:
     - Rakefile
     - config.ru
 
+
 require:
   - rubocop-rails
 
@@ -62,3 +63,9 @@ Lint/UnusedMethodArgument:
 
 Rails/HasAndBelongsToMany:
   Enabled: false
+
+Metrics/MethodLength:
+  Max: 1000
+
+Metrics/LineLength:
+  Max: 1000
